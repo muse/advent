@@ -31,27 +31,35 @@ defmodule Day.AMOTTAA do
        Map.put(stack, index, String.to_integer(instruction))
      end)
 
+  @spec increment(map, integer) :: map
   defp increment(map, index) do
     Map.put(map, index, pull(map, index) + 1)
   end
+
+  @spec decrement(map, integer) :: map
   defp decrement(map, index) do
     Map.put(map, index, pull(map, index) - 1)
   end
 
+  @spec pull(map, integer) :: integer
   defp pull(map, index) do
     Map.get(map, index)
   end
 
+  @spec update(:one, map, integer, integer) :: map
   defp update(:one, map, previous, _index) do
     increment(map, previous)
   end
+  @spec update(:two, map, integer, integer) :: map
   defp update(:two, map, previous, index) do
     if index - previous > 2, do: decrement(map, previous), else: increment(map, previous)
   end
 
+  @spec step(:one | :two, map, integer, nil, integer) :: integer
   defp step(_which, _map, _index, nil, stack) do
     stack
   end
+  @spec step(:one | :two, map, integer, integer, integer) :: integer
   defp step(which, map, index, instruction, stack) do
        previous = index
           index = index + instruction
@@ -61,10 +69,12 @@ defmodule Day.AMOTTAA do
     step(which, map, index, instruction, stack)
   end
 
+  @spec one(map) :: integer
   defp one(input) do
     step(:one, input, 0, pull(input, 0), 0)
   end
 
+  @spec two(map) :: integer
   defp two(input) do
     step(:two, input, 0, pull(input, 0), 0)
   end
