@@ -80,6 +80,7 @@ defmodule Day.AMOTTAA do
   end
 
   def main() do
+    # Answer
     [one: one(@input), two: two(@input)]
   end
 end
