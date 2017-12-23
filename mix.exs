@@ -11,7 +11,7 @@ defmodule Advent.Mixfile do
   end
 
   @spec application() :: []
-  defp application, do: []
+  def application, do: []
 
   @spec deps() :: []
   defp deps, do: []
