@@ -8,7 +8,10 @@ defmodule Advent do
     HighEntropyPassphrase,
     AMOTTAA,
     MemoryReallocation,
-    RecursiveCircus
+    RecursiveCircus,
+    IHYLR,
+    StreamProcessing,
+    KnotHash
   }
 
   @days %{
@@ -18,7 +21,10 @@ defmodule Advent do
     4 => HighEntropyPassphrase,
     5 => AMOTTAA,
     6 => MemoryReallocation,
-    7 => RecursiveCircus
+    7 => RecursiveCircus,
+    8 => IHYLR,
+    9 => StreamProcessing,
+   10 => KnotHash
   }
 
   @spec day(integer | Range.t | :all) :: map
